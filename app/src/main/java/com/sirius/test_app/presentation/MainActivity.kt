@@ -1,9 +1,10 @@
 package com.sirius.test_app.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
+import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -18,6 +19,7 @@ import com.sirius.test_app.recycler.manager
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
+
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding by viewBinding(ActivityMainBinding::class.java)
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private val viewModel: MainViewModel by lazy(LazyThreadSafetyMode.NONE) {
         ViewModelProvider(
             this,
-            MainViewModelFactory(DataModel(), MainPresentationMapper()) // TODO Replace with di
+            MainViewModelFactory(DataModel(), MainPresentationMapper())
         ).get(MainViewModel::class.java)
     }
 
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(FLAG_LAYOUT_NO_LIMITS, FLAG_LAYOUT_NO_LIMITS)
 
         recycler.submitList(viewModel.getDataAboutGame())
 
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
          * как дожна себя вести кнопка при скролле
          * Добавил ее поверх контента я осознанно
          */
-        with(binding){
+        with(binding) {
             install.setOnClickListener {
                 toast(getString(R.string.motivation_click))
             }
