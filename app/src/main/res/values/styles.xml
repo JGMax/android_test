@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TestApp.TextAppearance.Title" parent="">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/sk_modernist_bold</item>
+    </style>
+
+    <style name="TestApp.TextAppearance.Subtitle" parent="">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/sk_modernist_bold</item>
+        <item name="lineHeight">19sp</item>
+    </style>
+
+    <style name="TestApp.TextAppearance.Secondary" parent="">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/sk_modernist_mono</item>
+        <item name="lineHeight">14sp</item>
+    </style>
+
+    <style name="TestApp.TextAppearance.Body" parent="">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/sk_modernist_regular</item>
+        <item name="lineHeight">19sp</item>
+    </style>
+
+    <style name="TestApp.RatingBar" parent="android:style/Widget.Material.RatingBar.Small" />
+
+    <style name="TestApp.Chip" parent="" >
+        <item name="android:backgroundTint">@color/chip_background</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">10sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+</resources>

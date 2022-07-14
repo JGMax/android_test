@@ -28,12 +28,11 @@ class RecyclerViewHolder internal constructor(
 }
 
 @Suppress("UNCHECKED_CAST")
-fun <T : ViewBinding> RecyclerViewHolder.binding(
-    bindingFactory: ((View) -> T)? = null,
-    init: T.() -> Unit
-) {
-    if (bindingFactory != null && binding == null) {
+fun <T : ViewBinding> RecyclerViewHolder.getBinding(
+    bindingFactory: (View) -> T
+): T {
+    if(binding == null) {
         binding = bindingFactory(itemView)
     }
-    (binding as T).init()
+    return binding as T
 }

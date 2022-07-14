@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="placeholder">#40FFFFFF</color>
+
+    <color name="progress_active">#F4D144</color>
+    <color name="progress_inactive">#403F3D</color>
+
+    <color name="text_accent">@color/white</color>
+    <color name="text_subtitle">#EEF2FB</color>
+    <color name="text_secondary">#45454D</color>
+    <color name="text_date">#66FFFFFF</color>
+    <color name="text_regular">#B2EEF2FB</color>
+
+    <color name="background">#050B18</color>
+    <color name="chip_background">#3D44A9F4</color>
+    <color name="chip_text">#41A0E7</color>
 </resources>
