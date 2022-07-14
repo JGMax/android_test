@@ -6,5 +6,8 @@
     <string name="avatar_content_desc">avatar</string>
     <string name="game_poster_content_desc">Game poster</string>
     <string name="game_logo_content_desc">Game logo</string>
+    <string name="install">Install</string>
 
+    <string name="avatar_click">He is my good friend, %s</string>
+    <string name="installation_started">Installation started (Joke)</string>
 </resources>
