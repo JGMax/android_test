@@ -28,4 +28,35 @@
         app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <View
+        android:id="@+id/gradient"
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:background="@drawable/top_gradient"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/TestApp.FAB.Navigation"
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:layout_marginStart="24dp"
+        app:srcCompat="@drawable/ic_arrow_left"
+        app:layout_constraintBottom_toBottomOf="@+id/gradient"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/back_content_desc" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/TestApp.FAB.Navigation"
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="24dp"
+        app:srcCompat="@drawable/ic_more_square"
+        app:layout_constraintBottom_toBottomOf="@+id/gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/menu_content_desc" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

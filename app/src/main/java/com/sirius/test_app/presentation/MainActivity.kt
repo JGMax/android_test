@@ -49,8 +49,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
          * как дожна себя вести кнопка при скролле
          * Добавил ее поверх контента я осознанно
          */
-        binding.install.setOnClickListener {
-            toast(getString(R.string.installation_started))
+        with(binding){
+            install.setOnClickListener {
+                toast(getString(R.string.motivation_click))
+            }
+            back.setOnClickListener {
+                toast(getString(R.string.motivation_click))
+                onBackPressed()
+            }
+            menu.setOnClickListener { toast(getString(R.string.motivation_click)) }
         }
     }
 

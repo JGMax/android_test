@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="top_gradient_start">#050B18</color>
+    <color name="top_gradient_end">#00050B18</color>
+
     <color name="button_primary">#F4D144</color>
 
     <color name="placeholder">#40FFFFFF</color>
@@ -24,4 +27,5 @@
     <color name="background">#050B18</color>
     <color name="chip_background">#3D44A9F4</color>
     <color name="chip_text">#41A0E7</color>
+    <color name="fab_nav_background">#47FFFFFF</color>
 </resources>
