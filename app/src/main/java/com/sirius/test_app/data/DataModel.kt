@@ -7,10 +7,6 @@ class DataModel(
     val rating: Float = 4.9f,
     val gradeCnt: String = "70M",
     val tags: List<String> = listOf("MOBA", "MULTIPLAYER", "STRATEGY"),
-    val videos: List<VideoModel> = listOf(
-        VideoModel(id = "video_1", image = "https://ibb.co/q7dyBVH"),
-        VideoModel(id = "video_2", image = "https://ibb.co/S3GymhJ")
-    ),
     val description: String = "Dota 2 is a multiplayer online battle arena (MOBA) game which has two teams of five players compete to collectively destroy a large structure defended by the opposing team known as the \"Ancient\", whilst defending their own.",
     val reviews: List<ReviewModel> = listOf(
         ReviewModel(
@@ -26,12 +22,7 @@ class DataModel(
             message =
             "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
         )
-    ),
-    val action: ActionModel = ActionModel(
-        name = "Install",
-        action = "action_install"
     )
-
 )
 
 class ReviewModel(
@@ -39,14 +30,4 @@ class ReviewModel(
     val userName: String,
     val date: String,
     val message: String
-)
-
-class VideoModel(
-    val id: String,
-    val image: String
-)
-
-class ActionModel(
-    val name: String,
-    val action: String
 )
