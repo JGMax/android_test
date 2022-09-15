@@ -2,14 +2,15 @@ package com.sirius.test_app.presentation.model.recycler
 
 import com.sirius.test_app.R
 import com.sirius.test_app.databinding.ItemRatingBinding
+import com.sirius.test_app.presentation.model.ListItem
 import com.sirius.test_app.recycler.holder.RecyclerViewHolder
 import com.sirius.test_app.recycler.holder.getBinding
 import com.sirius.test_app.recycler.item.RecyclerItem
 
 data class MainItemRating(
-    private val rating: Float,
-    private val reviewsCount: String
-) : RecyclerItem() {
+    val rating: Float,
+    val reviewsCount: String
+) : RecyclerItem(), ListItem {
     override val layoutId: Int = R.layout.item_rating
 
     override fun bind(holder: RecyclerViewHolder) {
