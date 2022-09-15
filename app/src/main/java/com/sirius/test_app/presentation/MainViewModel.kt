@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sirius.test_app.data.DataModel
 import com.sirius.test_app.presentation.mapper.MainPresentationMapper
+import com.sirius.test_app.presentation.model.ListItem
 import com.sirius.test_app.recycler.item.RecyclerItem
 
 class MainViewModel(
@@ -11,7 +12,7 @@ class MainViewModel(
     private val mapper: MainPresentationMapper
 ) : ViewModel() {
 
-    fun getDataAboutGame(): List<RecyclerItem> = mapper.map(dataModel)
+    fun getDataAboutGame(): List<ListItem> = mapper.map(dataModel)
 }
 
 class MainViewModelFactory(

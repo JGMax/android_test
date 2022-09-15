@@ -4,64 +4,66 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.sirius.test_app.R
 import com.sirius.test_app.data.DataModel
-import com.sirius.test_app.databinding.ActivityMainBinding
 import com.sirius.test_app.presentation.mapper.MainPresentationMapper
+import com.sirius.test_app.presentation.model.ListItem
 import com.sirius.test_app.presentation.model.recycler.MainItemReview
-import com.sirius.test_app.recycler.RecyclerManager
-import com.sirius.test_app.recycler.clicks.clicks
-import com.sirius.test_app.recycler.manager
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
+import com.sirius.test_app.presentation.ui.MainScreen
+import com.sirius.test_app.presentation.ui.theme.SiriusAppTheme
 
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
-
-    private val binding by viewBinding(ActivityMainBinding::class.java)
+class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by lazy(LazyThreadSafetyMode.NONE) {
         ViewModelProvider(
             this,
             MainViewModelFactory(DataModel(), MainPresentationMapper())
-        ).get(MainViewModel::class.java)
-    }
-
-    private val recycler: RecyclerManager by lazy(LazyThreadSafetyMode.NONE) {
-        binding.recyclerView.manager()
+        )[MainViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContent {
+            SiriusAppTheme {
+                Surface(color = MaterialTheme.colors.background) {
+                    MainScreen(
+                        items = viewModel.getDataAboutGame(),
+                        onItemClick = ::onItemClick,
+                        onBackClick = ::onBackClick,
+                        onMenuClick = ::onMenuClick,
+                        onInstallClick = ::onInstallClick
+                    )
+                }
+            }
+        }
+
         window.setFlags(FLAG_LAYOUT_NO_LIMITS, FLAG_LAYOUT_NO_LIMITS)
+    }
 
-        recycler.submitList(viewModel.getDataAboutGame())
-
-        lifecycleScope.launchWhenResumed {
-            recycler.clicks<MainItemReview>(R.id.avatar_image)
-                .onEach { toast(getString(R.string.avatar_click, it.name)) }
-                .collect()
+    private fun onItemClick(item: ListItem) {
+        when (item) {
+            is MainItemReview -> toast(getString(R.string.avatar_click, item.name))
         }
+    }
 
-        /**
-         * Весь контент очевидно не поместится на экране, по макету не понятно,
-         * как дожна себя вести кнопка при скролле
-         * Добавил ее поверх контента я осознанно
-         */
-        with(binding) {
-            install.setOnClickListener {
-                toast(getString(R.string.motivation_click))
-            }
-            back.setOnClickListener {
-                toast(getString(R.string.motivation_click))
-                onBackPressed()
-            }
-            menu.setOnClickListener { toast(getString(R.string.motivation_click)) }
-        }
+    private fun onBackClick() {
+        toast(getString(R.string.motivation_click))
+        onBackPressedDispatcher.onBackPressed()
+    }
+
+    private fun onMenuClick() {
+        toast(getString(R.string.motivation_click))
+    }
+
+    private fun onInstallClick() {
+        toast(getString(R.string.motivation_click))
     }
 
     private fun toast(message: String) {

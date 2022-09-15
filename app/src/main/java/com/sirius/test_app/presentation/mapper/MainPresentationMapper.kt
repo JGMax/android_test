@@ -1,6 +1,7 @@
 package com.sirius.test_app.presentation.mapper
 
 import com.sirius.test_app.data.DataModel
+import com.sirius.test_app.presentation.model.ListItem
 import com.sirius.test_app.presentation.model.recycler.*
 import com.sirius.test_app.recycler.item.RecyclerItem
 
@@ -12,12 +13,12 @@ import com.sirius.test_app.recycler.item.RecyclerItem
  */
 class MainPresentationMapper {
 
-    fun map(dataModel: DataModel): List<RecyclerItem> {
+    fun map(dataModel: DataModel): List<ListItem> {
         return listOf(
             dataModel.mapToHeader(),
             dataModel.mapToDescription(),
             dataModel.mapToRating()
-        ) + dataModel.mapToReviews() + MainItemFooter()
+        ) + dataModel.mapToReviews()
     }
 
     private fun DataModel.mapToHeader(): MainItemHeader {
